@@ -30,6 +30,15 @@ from .utils import (
 setup_logging(debug=parse_bool_env(EnvVars.DEBUG))
 logger = logging.getLogger(__name__)
 
+_ZABBIX_URL = get_env(EnvVars.ZABBIX_URL, "not configured")
+
+
+def _with_server_url(fn):
+    """Prepend Zabbix server URL to tool docstring."""
+    if fn.__doc__:
+        fn.__doc__ = f"Zabbix server: {_ZABBIX_URL}\n\n" + fn.__doc__
+    return fn
+
 
 mcp = FastMCP("Zabbix MCP Server")
 
@@ -71,6 +80,7 @@ def _get_api_objects() -> Dict[str, list[str]]:
 
 
 @mcp.tool()
+@_with_server_url
 def zabbix_api(method: str, params: Optional[Dict[str, Any]] = None) -> str:
     """Execute Zabbix API method.
 
