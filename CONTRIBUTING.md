@@ -49,10 +49,10 @@ This project adheres to a code of conduct that we expect all contributors to fol
    uv sync
    ```
 4. **Set up environment:**
-   ```bash
-   cp .env.example .env
-   # Configure with your test Zabbix server
-   ```
+```bash
+cp config/.env.example .env
+# Configure with your test Zabbix server
+```
 
 #### Making Changes
 
@@ -62,9 +62,9 @@ This project adheres to a code of conduct that we expect all contributors to fol
    ```
 2. **Make your changes** following the coding standards
 3. **Test your changes:**
-   ```bash
-   uv run test_server.py
-   ```
+```bash
+uv run python scripts/test_server.py
+```
 4. **Commit your changes:**
    ```bash
    git commit -m "Add: brief description of changes"
@@ -124,7 +124,6 @@ def example_get(param1: str, param2: Optional[int] = None) -> str:
 
 - **Update README.md** if adding new features
 - **Add examples** for new tool functions
-- **Update MCP_SETUP.md** if changing configuration
 - **Include docstrings** for all new functions
 
 ### Pull Request Process
@@ -181,9 +180,8 @@ def example_get(param1: str, param2: Optional[int] = None) -> str:
 ## Release Process
 
 1. **Update version** in `pyproject.toml`
-2. **Update CHANGELOG.md** with new features and fixes
-3. **Create release tag** following semantic versioning
-4. **Update documentation** as needed
+2. **Create release tag** following semantic versioning
+3. **Update documentation** as needed
 
 ## Getting Help
 

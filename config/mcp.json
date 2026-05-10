@@ -1,13 +1,12 @@
 {
   "mcpServers": {
     "zabbix": {
-      "command": "uv",
+      "type": "stdio",
+      "command": "uvx",
       "args": [
-        "run",
-        "--directory",
-        "/path/to/zabbix-mcp-server",
-        "python",
-        "src/zabbix_mcp_server.py"
+        "--from",
+        "git+https://github.com/mpeirone/zabbix-mcp-server@main",
+        "zabbix-mcp"
       ],
       "env": {
         "ZABBIX_URL": "https://zabbix.example.com",

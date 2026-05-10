@@ -5,16 +5,7 @@ services:
     environment:
       - ZABBIX_URL=${ZABBIX_URL}
       - ZABBIX_TOKEN=${ZABBIX_TOKEN}
-      - ZABBIX_USER=${ZABBIX_USER}
-      - ZABBIX_PASSWORD=${ZABBIX_PASSWORD}
-      - READ_ONLY=${READ_ONLY:-true}
+      - ZABBIX_MCP_HOST=0.0.0.0
     ports:
       - "8000:8000"
     restart: unless-stopped
-    volumes:
-      - ./logs:/app/logs
-    healthcheck:
-      test: ["CMD", "python", "test_server.py"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
